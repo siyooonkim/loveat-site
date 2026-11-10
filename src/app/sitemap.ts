@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { ARTICLES } from '@/lib/articles';
 import { SITE_URL } from '@/lib/site';
 
 export const dynamic = 'force-static';
@@ -12,6 +13,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${SITE_URL}/`, lastModified: SITE_UPDATED, changeFrequency: 'weekly', priority: 1.0 },
     { url: `${SITE_URL}/guide/`, lastModified: SITE_UPDATED, changeFrequency: 'weekly', priority: 0.8 },
+    ...ARTICLES.map((a) => ({
+      url: `${SITE_URL}/guide/${a.slug}/`,
+      lastModified: a.dateModified,
+      changeFrequency: 'monthly' as const,
+      priority: 0.7,
+    })),
     { url: `${SITE_URL}/account-deletion/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
   ];
 }

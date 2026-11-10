@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { GuideFooter, GuideHeader } from '@/components/GuideChrome';
 import JsonLd from '@/components/JsonLd';
 import { articleLd, breadcrumb } from '@/components/ArticleLd';
+import { ARTICLES } from '@/lib/articles';
 import { OG_IMAGE, SITE_NAME } from '@/lib/site';
 
 const DESCRIPTION =
@@ -36,6 +37,16 @@ const jsonLd = {
     articleLd({ headline: '돌싱 소개팅, 처음이라면', description: DESCRIPTION, path: '/guide/#first-date', datePublished: D, dateModified: D }),
     articleLd({ headline: '재혼 만남에서 서류 인증이 중요한 이유', description: DESCRIPTION, path: '/guide/#verification', datePublished: D, dateModified: D }),
     articleLd({ headline: '아는 사람 안 마주치고 소개받는 법', description: DESCRIPTION, path: '/guide/#privacy', datePublished: D, dateModified: D }),
+    {
+      '@type': 'ItemList',
+      name: '돌싱 만남 가이드 글 목록',
+      itemListElement: ARTICLES.map((a, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `https://loveat.kr/guide/${a.slug}/`,
+        name: a.title,
+      })),
+    },
     breadcrumb([
       { name: '러브앳', path: '/' },
       { name: '돌싱 만남 가이드', path: '/guide/' },
@@ -43,7 +54,7 @@ const jsonLd = {
   ],
 };
 
-/** 돌싱 만남 가이드(허브) — 기존 정적 guide/index.html 본문 그대로 */
+/** 돌싱 만남 가이드(허브) — 기존 정적 guide/index.html 본문 그대로 + 개별 글 목록을 같은 목차 스타일로 이어 붙임 */
 export default function GuidePage() {
   return (
     <>
@@ -57,6 +68,9 @@ export default function GuidePage() {
           <li><a href="#first-date">1. 돌싱 소개팅, 처음이라면</a></li>
           <li><a href="#verification">2. 재혼 만남에서 서류 인증이 중요한 이유</a></li>
           <li><a href="#privacy">3. 아는 사람 안 마주치고 소개받는 법</a></li>
+          {ARTICLES.map((a, i) => (
+            <li key={a.slug}><a href={`/guide/${a.slug}/`}>{`${i + 4}. ${a.title}`}</a></li>
+          ))}
         </ul>
 
         <article id="first-date">
