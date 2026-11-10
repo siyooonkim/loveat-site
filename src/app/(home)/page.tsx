@@ -270,6 +270,7 @@ export default function HomePage() {
                 <a href="#">커뮤니티 가이드라인</a>
                 {/* TODO: 고객센터(문의 채널) 정해지면 링크 연결 */}
                 <a href="#">고객센터</a>
+                <a href="/guide/">돌싱 만남 가이드</a>
               </nav>
             </div>
             <div className="footer-line"></div>
