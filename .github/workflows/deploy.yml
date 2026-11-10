@@ -1,0 +1,45 @@
+# main 에 push 되면 Next.js 정적 빌드(out/)를 GitHub Pages 에 배포한다.
+# 사전 설정(1회): 저장소 Settings → Pages → Build and deployment → Source 를 "GitHub Actions" 로 바꾼다.
+name: Deploy site to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      # public/ 의 CNAME(loveat.kr), .nojekyll 이 out/ 에 함께 들어간다
+      - run: test -f out/CNAME && test -f out/index.html && test -f out/sitemap.xml && test -f out/robots.txt
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
