@@ -22,5 +22,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE_URL}/account-deletion/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/terms/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${SITE_URL}/privacy/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/child-safety/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
   ];
 }
