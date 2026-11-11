@@ -6,7 +6,7 @@ export const dynamic = 'force-static';
 
 /**
  * /sitemap.xml — 색인할 페이지만 넣는다.
- * /terms/, /privacy/ 는 외부 문서(loveat-legal)로 넘기는 페이지라 canonical 이 밖을 가리켜서 뺀다.
+ * /delete-account/ 는 /account-deletion/ 과 같은 본문(canonical 이 /account-deletion/)이라 뺀다.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
   const SITE_UPDATED = '2026-11-10';
@@ -20,5 +20,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.7,
     })),
     { url: `${SITE_URL}/account-deletion/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/terms/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${SITE_URL}/privacy/`, lastModified: SITE_UPDATED, changeFrequency: 'yearly', priority: 0.3 },
   ];
 }

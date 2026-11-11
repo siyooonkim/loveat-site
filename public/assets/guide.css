@@ -186,6 +186,17 @@ section { scroll-margin-top: 72px; }
 .article .toc a { font-weight: 600; color: var(--coral-text); }
 .article .back-cta { margin-top: 40px; text-align: center; }
 
+/* Legal documents (/terms/, /privacy/) — 기존 글 카드와 같은 글꼴·색, 표·번호 목록만 보탠다 */
+.article [id] { scroll-margin-top: 72px; }
+.article ol.toc { list-style: decimal; padding-left: 20px; }
+.article article ol { margin: 12px 0 0; padding-left: 20px; font-size: 17px; line-height: 1.75; color: #33302C; }
+.article article ol > li + li { margin-top: 6px; }
+.article .box { margin-top: 12px; font-size: 17px; line-height: 1.75; color: #33302C; }
+.article .tbl { margin-top: 12px; overflow-x: auto; }
+.article table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 1.6; color: #33302C; }
+.article th, .article td { border: 1px solid var(--line); padding: 8px 10px; text-align: left; vertical-align: top; }
+.article th { background: var(--ivory); font-weight: 700; }
+
 /* >= 720px */
 @media (min-width: 720px) {
   .wrap { padding: 0 32px; }
