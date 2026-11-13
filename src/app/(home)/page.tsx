@@ -3,12 +3,11 @@ import { APP_STORE_URL, CONTACT_EMAIL, ORG_ID, SITE_URL, WEBSITE_ID } from '@/li
 
 /** 자주 묻는 질문 — 화면과 FAQPage 구조화 데이터가 같은 목록을 쓴다 */
 const FAQ = [
-  { q: '어떤 분들이 가입하나요?', a: '재혼을 희망하는 30~50대 돌싱 분들이에요. 서류 검증을 마친 분만 소개 대상이 돼요.' },
+  { q: '어떤 분들이 가입하나요?', a: '재혼을 희망하는 분들이에요.' },
   { q: '어떤 서류가 필요한가요?', a: '신원 확인, 혼인 이력, 직장 확인을 위한 서류가 필요해요. 앱 안에서 안내에 따라 제출하시면 돼요.' },
-  { q: '하루에 몇 명을 소개받나요?', a: '매일 새로운 분을 최대 3명 소개해 드려요.' },
-  { q: '카드는 무엇인가요?', a: '[제안하기]와 [패스]에 공통으로 쓰여요. 남은 카드 수는 오늘의 소개 화면 위쪽에서 확인할 수 있어요.' },
+  { q: '하루에 몇 명을 소개받나요?', a: '매일 저녁 6시에 꼭 맞는 분을 1명 골라 소개해 드려요.' },
+  { q: '카드는 어떤 게 있고, 언제 쓰나요?', a: '제안카드와 패스카드 두 가지예요. 마음에 드는 분께 제안할 때 제안카드 1장, 넘길 때 패스카드 1장을 써요. 베타 기간에는 매일 저녁 6시에 각각 1장씩 무료로 채워지고, 더 필요하면 앱에서 살 수 있어요. 두 분 모두 제안하면 바로 매칭돼 대화가 열려요.' },
   { q: '대화는 언제 시작되나요?', a: '두 분 모두 [제안하기]를 눌러 매칭되었을 때만 대화가 열려요.' },
-  { q: '72시간 안에 고르지 않으면요?', a: '선택 마감 시각이 지나면 해당 소개는 종료돼요.' },
 ];
 
 const jsonLd = {
@@ -38,7 +37,7 @@ const jsonLd = {
       operatingSystem: 'iOS',
       applicationCategory: 'LifestyleApplication',
       applicationSubCategory: 'SocialNetworkingApplication',
-      description: '신원·혼인 이력·직장을 서류로 확인한 돌싱 분들을 매일 최대 3명 소개해요. 대화는 서로 제안했을 때만 시작돼요.',
+      description: '신원·혼인 이력·직장을 서류로 확인한 돌싱 분들을 매일 1명 소개해요. 대화는 서로 제안했을 때만 시작돼요.',
       downloadUrl: APP_STORE_URL,
       installUrl: APP_STORE_URL,
       image: `${SITE_URL}/assets/img/logo-512.png`,
@@ -85,11 +84,6 @@ export default function HomePage() {
               <picture><source srcSet="/assets/img/loveat-logo-80.webp" type="image/webp" /><img src="/assets/img/loveat-logo-80.png" width="34" height="34" alt="" /></picture>
               <span>Love at</span>
             </a>
-            <nav className="nav" aria-label="주요 메뉴">
-              <a href="#about">서비스 소개</a>
-              <a href="#safety">안전</a>
-              <a href="#faq">자주 묻는 질문</a>
-            </nav>
             <a className="btn-header" href="#download">앱 다운로드</a>
           </div>
         </header>
@@ -102,7 +96,7 @@ export default function HomePage() {
               <h1 id="hero-title">오직 돌싱만,<br />검증된 소개</h1>
               <p className="hero-lead">믿을 수 있는 인연, 러브앳에서 다시 시작하세요.<br />신원·혼인 이력·직장까지 확인한 분들만 만나요.</p>
               <a className="btn-hero" href="#download">앱 다운로드</a>
-              <div className="hero-visual" role="img" aria-label="러브앳 앱 '오늘의 소개' 화면 예시. 혼인 이력 인증 서류 확인 완료, 서로 제안했어요 알림">
+              <div className="hero-visual" role="img" aria-label="러브앳 앱 '오늘의 소개' 화면 예시(연출 이미지). 서로 제안했어요 알림">
                 <div className="phone" aria-hidden="true">
                   <div className="phone-screen">
                     <div className="phone-island"></div>
@@ -114,17 +108,13 @@ export default function HomePage() {
                     <div className="phone-card">
                       <picture>
                         <source srcSet="/assets/img/w1.webp" type="image/webp" />
-                        <img src="/assets/img/w1.jpg" width="600" height="800" fetchPriority="high" alt="" />
+                        <img src="/assets/img/w1.jpg" width="285" height="220" fetchPriority="high" alt="" />
                       </picture>
                       <div className="phone-card-shade"></div>
-                      <div className="phone-card-info"><span className="n">윤희, 41</span><span className="m">서울 강남 · 브랜드 디자이너</span></div>
+                      <div className="phone-card-info"><span className="n">서지원, 36</span><span className="m">서울 마포 · 초등 교사</span></div>
                     </div>
-                    <div className="phone-bottom"></div>
+                    <div className="phone-bottom"><p className="phone-note">화면 속 인물은 연출 이미지예요.</p></div>
                   </div>
-                </div>
-                <div className="float float-l" aria-hidden="true">
-                  <span className="float-ic"><svg width="15" height="16" viewBox="0 0 13 14" fill="none" stroke="#D23C34" strokeWidth="1.6"><path d="M6.5 1L1.5 3v4c0 3 2.2 5.2 5 6 2.8-.8 5-3 5-6V3l-5-2z" strokeLinejoin="round" /><path d="M4.3 7l1.6 1.6L8.8 5.7" strokeLinecap="round" strokeLinejoin="round" /></svg></span>
-                  <span className="float-tx"><span className="t">혼인 이력 인증</span><span className="s">서류 확인 완료</span></span>
                 </div>
                 <div className="float float-r" aria-hidden="true">
                   <span className="float-ic"><svg width="16" height="14" viewBox="0 0 18 16" fill="#fff"><path d="M9 15.5S1 10.6 1 5.2C1 2.8 2.9 1 5.1 1 6.7 1 8.1 1.9 9 3.2 9.9 1.9 11.3 1 12.9 1 15.1 1 17 2.8 17 5.2c0 5.4-8 10.3-8 10.3z" /></svg></span>
@@ -137,7 +127,7 @@ export default function HomePage() {
           {/* 철학 */}
           <section className="about" id="about" aria-labelledby="about-title">
             <span className="eyebrow">러브앳의 철학</span>
-            <h2 id="about-title">가벼운 만남을 위한<br />앱이 아니에요.</h2>
+            <h2 id="about-title">가벼운 만남을 위한<br />앱이 아니에요</h2>
             <p>한 번의 아픔을 지나 다시 시작하려는 분들께,<br />서두르지 않고 믿을 수 있는 한 사람을 소개해요.</p>
           </section>
 
@@ -151,13 +141,13 @@ export default function HomePage() {
               <div className="diff-grid">
                 <article className="diff-card">
                   <div className="diff-text">
-                    <h3>매일, 최대 3명.</h3>
+                    <h3>매일, 1명.</h3>
                     <p>검증된 분 가운데 나와 어울리는 분을 매일 새로 소개해요.</p>
                   </div>
                   <div className="diff-visual v-cards" aria-hidden="true">
-                    <div className="c c-l"><picture><source srcSet="/assets/img/w3-sm.webp" type="image/webp" /><img src="/assets/img/w3-sm.jpg" width="240" height="320" loading="lazy" decoding="async" alt="" /></picture></div>
-                    <div className="c c-r"><picture><source srcSet="/assets/img/w2-sm.webp" type="image/webp" /><img src="/assets/img/w2-sm.jpg" width="240" height="320" loading="lazy" decoding="async" alt="" /></picture></div>
-                    <div className="c-main"><picture><source srcSet="/assets/img/w1-sm.webp" type="image/webp" /><img src="/assets/img/w1-sm.jpg" width="240" height="320" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c c-l"><picture><source srcSet="/assets/img/w4.webp" type="image/webp" /><img src="/assets/img/w4.jpg" width="285" height="204" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c c-r"><picture><source srcSet="/assets/img/w5.webp" type="image/webp" /><img src="/assets/img/w5.jpg" width="285" height="204" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c-main"><picture><source srcSet="/assets/img/w3.webp" type="image/webp" /><img src="/assets/img/w3.jpg" width="285" height="214" loading="lazy" decoding="async" alt="" /></picture></div>
                   </div>
                 </article>
 

@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: '러브앳 – 돌싱 소개팅·재혼 만남, 서류로 검증된 돌싱만',
   description:
-    '러브앳은 혼인관계증명서로 인증한 돌싱만 만나는 소개팅 앱이에요. 재혼을 생각하는 돌싱에게 매일 최대 세 분, 서류로 검증된 분을 소개해요.',
+    '러브앳은 혼인관계증명서로 인증한 돌싱만 만나는 소개팅 앱이에요. 재혼을 생각하는 돌싱에게 매일 한 분, 서류로 검증된 분을 소개해요.',
   alternates: { canonical: '/' },
   itunes: { appId: APP_STORE_ID },
   verification: verificationMeta(),
