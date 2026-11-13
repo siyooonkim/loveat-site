@@ -103,15 +103,15 @@ export default function HomePage() {
                     <div className="phone-status"></div>
                     <div className="phone-head">
                       <span className="phone-title">오늘의 소개</span>
-                      <span className="phone-chip">카드 3장</span>
+                      <span className="phone-chip">카드 1장</span>
                     </div>
                     <div className="phone-card">
                       <picture>
                         <source srcSet="/assets/img/w1.webp" type="image/webp" />
-                        <img src="/assets/img/w1.jpg" width="285" height="220" fetchPriority="high" alt="" />
+                        <img src="/assets/img/w1.jpg" width="286" height="381" fetchPriority="high" alt="" />
                       </picture>
                       <div className="phone-card-shade"></div>
-                      <div className="phone-card-info"><span className="n">서지원, 36</span><span className="m">서울 마포 · 초등 교사</span></div>
+                      <div className="phone-card-info"><span className="n">서지원, 29</span><span className="m">서울 마포 · 초등 교사</span></div>
                     </div>
                     <div className="phone-bottom"><p className="phone-note">화면 속 인물은 연출 이미지예요.</p></div>
                   </div>
@@ -145,9 +145,9 @@ export default function HomePage() {
                     <p>검증된 분 가운데 나와 어울리는 분을 매일 새로 소개해요.</p>
                   </div>
                   <div className="diff-visual v-cards" aria-hidden="true">
-                    <div className="c c-l"><picture><source srcSet="/assets/img/w4.webp" type="image/webp" /><img src="/assets/img/w4.jpg" width="285" height="204" loading="lazy" decoding="async" alt="" /></picture></div>
-                    <div className="c c-r"><picture><source srcSet="/assets/img/w5.webp" type="image/webp" /><img src="/assets/img/w5.jpg" width="285" height="204" loading="lazy" decoding="async" alt="" /></picture></div>
-                    <div className="c-main"><picture><source srcSet="/assets/img/w3.webp" type="image/webp" /><img src="/assets/img/w3.jpg" width="285" height="214" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c c-l"><picture><source srcSet="/assets/img/w4.webp" type="image/webp" /><img src="/assets/img/w4.jpg" width="152" height="203" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c c-r"><picture><source srcSet="/assets/img/w5.webp" type="image/webp" /><img src="/assets/img/w5.jpg" width="160" height="213" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c-main"><picture><source srcSet="/assets/img/w3.webp" type="image/webp" /><img src="/assets/img/w3.jpg" width="285" height="380" loading="lazy" decoding="async" alt="" /></picture></div>
                   </div>
                 </article>
 
