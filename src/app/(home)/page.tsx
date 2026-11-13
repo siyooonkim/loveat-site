@@ -145,9 +145,9 @@ export default function HomePage() {
                     <p>검증된 분 가운데 나와 어울리는 분을 매일 새로 소개해요.</p>
                   </div>
                   <div className="diff-visual v-cards" aria-hidden="true">
-                    <div className="c c-l"><picture><source srcSet="/assets/img/w4.webp" type="image/webp" /><img src="/assets/img/w4.jpg" width="152" height="203" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c c-l"><picture><source srcSet="/assets/img/w3.webp" type="image/webp" /><img src="/assets/img/w3.jpg" width="285" height="380" loading="lazy" decoding="async" alt="" /></picture></div>
                     <div className="c c-r"><picture><source srcSet="/assets/img/w5.webp" type="image/webp" /><img src="/assets/img/w5.jpg" width="160" height="213" loading="lazy" decoding="async" alt="" /></picture></div>
-                    <div className="c-main"><picture><source srcSet="/assets/img/w3.webp" type="image/webp" /><img src="/assets/img/w3.jpg" width="285" height="380" loading="lazy" decoding="async" alt="" /></picture></div>
+                    <div className="c-main"><picture><source srcSet="/assets/img/w4.webp" type="image/webp" /><img src="/assets/img/w4.jpg" width="152" height="203" loading="lazy" decoding="async" alt="" /></picture></div>
                   </div>
                 </article>
 
