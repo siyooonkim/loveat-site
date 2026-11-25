@@ -37,7 +37,7 @@ export default function AccountDeletionPage() {
 
       <main id="main" className="article">
           <h1>계정 삭제(탈퇴) 안내</h1>
-          <p className="intro">돌싱 만남 앱 <strong>러브앳(Love at)</strong>의 계정을 삭제하는 방법을 안내해요. 러브앳은 김시윤이 운영해요. 앱에서 바로 탈퇴할 수 있고, 앱을 쓸 수 없다면 이메일로 삭제를 요청할 수도 있어요.</p>
+          <p className="intro"><strong>러브앳(Love at)</strong> 앱의 계정을 삭제하는 방법을 안내해요. 러브앳은 김시윤이 운영해요. 앱에서 바로 탈퇴할 수 있고, 앱을 쓸 수 없다면 이메일로 삭제를 요청할 수도 있어요.</p>
           <ul className="toc">
             <li><a href="#in-app">1. 앱에서 탈퇴하기</a></li>
             <li><a href="#request">2. 앱 없이 삭제 요청하기</a></li>

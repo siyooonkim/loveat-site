@@ -1,0 +1,201 @@
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="wordmark" href="#top" aria-label="러브앳 처음으로"><span>love<b>at</b></span></a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO: copy, the film in a centred frame, store badges -->
+  <section class="hero" id="hero" aria-labelledby="hero-h">
+    <div class="hero-copy">
+      <h1 class="hero-h" id="hero-h"><span>당신이 원하는</span><span class="em">상대를 만나요</span></h1>
+      <p class="hero-sub">먼저 당신을 알아가요. 그리고 당신과 잘 맞는 사람을 찾아요.</p>
+    </div>
+    <div class="frame" id="frame">
+      <video id="film" autoplay muted playsinline preload="auto" poster="v4/film-16x9-poster.jpg" aria-label="러브앳 영상: 한 남자의 시선으로 거리에서 스쳐 가는 사람들 옆에 맞는 정도가 뜨고, 카페에서 마주친 그녀가 96.5%로 MATCHED된 뒤 두 사람이 한강이 보이는 카페에서 마주 앉아 웃는다">
+      </video>
+      <script>
+        /* vertical film only on a real phone held upright; any window that is wide or square, however narrow, gets 16:9 */
+        (function(){ var v=document.getElementById('film'), f=document.getElementById('frame');
+          var phone=window.matchMedia('(orientation: portrait) and (max-width: 600px)').matches && (window.innerWidth/window.innerHeight)<1;
+          if(phone){ v.poster='v4/film-9x16-poster.jpg'; v.src='v4/film-9x16.mp4'; }
+          else { f.classList.add('wide'); v.src='v4/film-16x9.mp4'; } })();
+      </script>
+      <div class="heads" id="heads" aria-hidden="true"></div>
+      <p class="film-cap" id="filmCap">당신이 원하는 상대를 만날 때까지<br>함께해요.</p>
+      <button class="replay" id="filmCtl" type="button" hidden aria-label="영상 다시 보기"></button>
+    </div>
+    <script type="application/json" id="cueData">{"fps":24,"duration":28.583,"loop":false,"end":"hold the last frame (two laughing)","coords":"x,y = 0..1 of the video frame; y = top of the head (tag sits above it, or beside it when tagPlacement is left/right)","files":{"16x9":"web-clean-16x9.mp4","9x16":"web-clean-9x16.mp4"},"transitions":[{"type":"crossfade","from":"man-hero","to":"man-pov-1","start":2.667,"end":3.25},{"type":"crossfade","from":"man-pov-1","to":"man-pov-2","start":7.083,"end":7.667},{"type":"crossfade","from":"man-pov-2","to":"man-pov-3","start":10.75,"end":11.333},{"type":"crossfade","from":"man-pov-3","to":"woman-hero","start":14.667,"end":15.25}],"shots":[{"id":"man-hero","scene":"주인공","start":0.0,"end":3.25,"soloFrom":0.0,"soloTo":2.667,"head":{"16x9":[{"t":0.0,"x":0.53,"y":0.32,"inFrame":true},{"t":0.25,"x":0.5218,"y":0.3113,"inFrame":true},{"t":0.5,"x":0.5137,"y":0.3026,"inFrame":true},{"t":0.75,"x":0.5055,"y":0.2939,"inFrame":true},{"t":1.0,"x":0.4973,"y":0.2851,"inFrame":true},{"t":1.25,"x":0.4892,"y":0.2764,"inFrame":true},{"t":1.5,"x":0.481,"y":0.2677,"inFrame":true},{"t":1.75,"x":0.4851,"y":0.2507,"inFrame":true},{"t":2.0,"x":0.4909,"y":0.2327,"inFrame":true},{"t":2.25,"x":0.4967,"y":0.2146,"inFrame":true},{"t":2.5,"x":0.5026,"y":0.1965,"inFrame":true},{"t":2.75,"x":0.5084,"y":0.1784,"inFrame":true},{"t":3.0,"x":0.5142,"y":0.1603,"inFrame":true}],"9x16":[{"t":0.0,"x":0.5,"y":0.18,"inFrame":true},{"t":0.25,"x":0.5,"y":0.1751,"inFrame":true},{"t":0.5,"x":0.5,"y":0.1702,"inFrame":true},{"t":0.75,"x":0.5,"y":0.1653,"inFrame":true},{"t":1.0,"x":0.5,"y":0.1604,"inFrame":true},{"t":1.25,"x":0.5,"y":0.1555,"inFrame":true},{"t":1.5,"x":0.5,"y":0.1506,"inFrame":true},{"t":1.75,"x":0.5,"y":0.141,"inFrame":true},{"t":2.0,"x":0.5,"y":0.1309,"inFrame":true},{"t":2.25,"x":0.5,"y":0.1207,"inFrame":true},{"t":2.5,"x":0.5,"y":0.1105,"inFrame":true},{"t":2.75,"x":0.5,"y":0.1003,"inFrame":true},{"t":3.0,"x":0.5,"y":0.0902,"inFrame":true}]},"tagPlacement":{"16x9":null,"9x16":null}},{"id":"man-pov-1","scene":"스침 1","start":2.667,"end":7.667,"soloFrom":3.25,"soloTo":7.083,"head":{"16x9":[{"t":2.667,"x":0.45,"y":0.3733,"inFrame":true},{"t":2.917,"x":0.3786,"y":0.4051,"inFrame":true},{"t":3.167,"x":0.3806,"y":0.3948,"inFrame":true},{"t":3.417,"x":0.3927,"y":0.3787,"inFrame":true},{"t":3.667,"x":0.4047,"y":0.3626,"inFrame":true},{"t":3.917,"x":0.4167,"y":0.3466,"inFrame":true},{"t":4.167,"x":0.4288,"y":0.3305,"inFrame":true},{"t":4.417,"x":0.4408,"y":0.3144,"inFrame":true},{"t":4.667,"x":0.454,"y":0.3048,"inFrame":true},{"t":4.917,"x":0.4704,"y":0.3154,"inFrame":true},{"t":5.167,"x":0.4869,"y":0.3261,"inFrame":true},{"t":5.417,"x":0.5034,"y":0.3367,"inFrame":true},{"t":5.667,"x":0.5198,"y":0.3474,"inFrame":true},{"t":5.917,"x":0.5363,"y":0.358,"inFrame":true},{"t":6.167,"x":0.5528,"y":0.3686,"inFrame":true},{"t":6.417,"x":0.562,"y":0.3698,"inFrame":true},{"t":6.667,"x":0.5656,"y":0.3634,"inFrame":true},{"t":6.917,"x":0.5692,"y":0.357,"inFrame":true},{"t":7.167,"x":0.5728,"y":0.3506,"inFrame":true},{"t":7.417,"x":0.5764,"y":0.3442,"inFrame":true}],"9x16":[{"t":2.667,"x":0.5,"y":0.26,"inFrame":true},{"t":2.917,"x":0.5,"y":0.2779,"inFrame":true},{"t":3.167,"x":0.5,"y":0.272,"inFrame":true},{"t":3.417,"x":0.5,"y":0.263,"inFrame":true},{"t":3.667,"x":0.5,"y":0.254,"inFrame":true},{"t":3.917,"x":0.5,"y":0.2449,"inFrame":true},{"t":4.167,"x":0.5,"y":0.2359,"inFrame":true},{"t":4.417,"x":0.5,"y":0.2269,"inFrame":true},{"t":4.667,"x":0.5,"y":0.2214,"inFrame":true},{"t":4.917,"x":0.5,"y":0.2274,"inFrame":true},{"t":5.167,"x":0.5,"y":0.2334,"inFrame":true},{"t":5.417,"x":0.5,"y":0.2394,"inFrame":true},{"t":5.667,"x":0.5,"y":0.2454,"inFrame":true},{"t":5.917,"x":0.5,"y":0.2514,"inFrame":true},{"t":6.167,"x":0.5,"y":0.2574,"inFrame":true},{"t":6.417,"x":0.5,"y":0.258,"inFrame":true},{"t":6.667,"x":0.5,"y":0.2544,"inFrame":true},{"t":6.917,"x":0.5,"y":0.2508,"inFrame":true},{"t":7.167,"x":0.5,"y":0.2472,"inFrame":true},{"t":7.417,"x":0.5,"y":0.2436,"inFrame":true}]},"tagPlacement":{"16x9":"top","9x16":"top"},"tag":{"text":"FRIEND 62% · LOVE 41%","friend":62,"love":41,"placeholder":"FRIEND ??% · LOVE ??%","fadeIn":[3.65,4.0],"rollStart":4.25,"rollStop":5.25,"roll":"random digits, slowing","fadeOut":[6.783,7.083]}},{"id":"man-pov-2","scene":"스침 2 (두 사람)","start":7.083,"end":11.333,"soloFrom":7.667,"soloTo":10.75,"head":{"16x9":[{"t":7.083,"x":0.73,"y":0.2667,"inFrame":true},{"t":7.333,"x":0.7492,"y":0.2553,"inFrame":true},{"t":7.583,"x":0.7544,"y":0.2489,"inFrame":true},{"t":7.833,"x":0.7415,"y":0.2489,"inFrame":true},{"t":8.083,"x":0.7425,"y":0.2357,"inFrame":true},{"t":8.333,"x":0.7453,"y":0.2207,"inFrame":true},{"t":8.583,"x":0.7481,"y":0.2057,"inFrame":true},{"t":8.833,"x":0.7536,"y":0.2035,"inFrame":true},{"t":9.083,"x":0.7648,"y":0.2285,"inFrame":true},{"t":9.333,"x":0.7761,"y":0.2535,"inFrame":true},{"t":9.583,"x":0.7873,"y":0.2785,"inFrame":true},{"t":9.833,"x":0.79,"y":0.2691,"inFrame":true},{"t":10.083,"x":0.79,"y":0.2489,"inFrame":true},{"t":10.333,"x":0.79,"y":0.2287,"inFrame":true},{"t":10.583,"x":0.7919,"y":0.21,"inFrame":true},{"t":10.833,"x":0.7998,"y":0.1959,"inFrame":true},{"t":11.083,"x":0.8077,"y":0.1819,"inFrame":true}],"9x16":[{"t":7.083,"x":0.52,"y":0.15,"inFrame":true},{"t":7.333,"x":0.5542,"y":0.1436,"inFrame":true},{"t":7.583,"x":0.5633,"y":0.14,"inFrame":true},{"t":7.833,"x":0.5405,"y":0.14,"inFrame":true},{"t":8.083,"x":0.5422,"y":0.1326,"inFrame":true},{"t":8.333,"x":0.5472,"y":0.1242,"inFrame":true},{"t":8.583,"x":0.5522,"y":0.1157,"inFrame":true},{"t":8.833,"x":0.5619,"y":0.1145,"inFrame":true},{"t":9.083,"x":0.5819,"y":0.1285,"inFrame":true},{"t":9.333,"x":0.6019,"y":0.1426,"inFrame":true},{"t":9.583,"x":0.6219,"y":0.1566,"inFrame":true},{"t":9.833,"x":0.6267,"y":0.1514,"inFrame":true},{"t":10.083,"x":0.6267,"y":0.14,"inFrame":true},{"t":10.333,"x":0.6267,"y":0.1286,"inFrame":true},{"t":10.583,"x":0.63,"y":0.1181,"inFrame":true},{"t":10.833,"x":0.6441,"y":0.1102,"inFrame":true},{"t":11.083,"x":0.6581,"y":0.1023,"inFrame":true}]},"tagPlacement":{"16x9":"top","9x16":"top"},"tag":{"text":"FRIEND 71% · LOVE 28%","friend":71,"love":28,"fadeIn":[8.067,8.417],"countUp":[8.067,8.667],"fadeOut":[10.45,10.75]},"head2":{"16x9":[{"t":7.083,"x":0.33,"y":0.3022,"inFrame":true},{"t":7.333,"x":0.2979,"y":0.2908,"inFrame":true},{"t":7.583,"x":0.2744,"y":0.2694,"inFrame":true},{"t":7.833,"x":0.2615,"y":0.2352,"inFrame":true},{"t":8.083,"x":0.2699,"y":0.2355,"inFrame":true},{"t":8.333,"x":0.2811,"y":0.2405,"inFrame":true},{"t":8.583,"x":0.2924,"y":0.2455,"inFrame":true},{"t":8.833,"x":0.2982,"y":0.2505,"inFrame":true},{"t":9.083,"x":0.2926,"y":0.2555,"inFrame":true},{"t":9.333,"x":0.287,"y":0.2605,"inFrame":true},{"t":9.583,"x":0.2813,"y":0.2655,"inFrame":true},{"t":9.833,"x":0.2627,"y":0.2552,"inFrame":true},{"t":10.083,"x":0.24,"y":0.24,"inFrame":true},{"t":10.333,"x":0.2173,"y":0.2248,"inFrame":true},{"t":10.583,"x":0.2006,"y":0.2111,"inFrame":true},{"t":10.833,"x":0.2033,"y":0.2017,"inFrame":true},{"t":11.083,"x":0.2059,"y":0.1924,"inFrame":true}],"9x16":[{"t":7.083,"x":-0.1911,"y":0.17,"inFrame":false},{"t":7.333,"x":-0.2481,"y":0.1636,"inFrame":false},{"t":7.583,"x":-0.29,"y":0.1515,"inFrame":false},{"t":7.833,"x":-0.3128,"y":0.1323,"inFrame":false},{"t":8.083,"x":-0.298,"y":0.1325,"inFrame":false},{"t":8.333,"x":-0.278,"y":0.1353,"inFrame":false},{"t":8.583,"x":-0.258,"y":0.1381,"inFrame":false},{"t":8.833,"x":-0.2476,"y":0.1409,"inFrame":false},{"t":9.083,"x":-0.2576,"y":0.1437,"inFrame":false},{"t":9.333,"x":-0.2676,"y":0.1465,"inFrame":false},{"t":9.583,"x":-0.2776,"y":0.1493,"inFrame":false},{"t":9.833,"x":-0.3107,"y":0.1435,"inFrame":false},{"t":10.083,"x":-0.3511,"y":0.135,"inFrame":false},{"t":10.333,"x":-0.3915,"y":0.1265,"inFrame":false},{"t":10.583,"x":-0.4211,"y":0.1187,"inFrame":false},{"t":10.833,"x":-0.4164,"y":0.1135,"inFrame":false},{"t":11.083,"x":-0.4117,"y":0.1082,"inFrame":false}]},"tag2":{"who":"left woman (head2)","text":"FRIEND 58% · LOVE 36%","friend":58,"love":36,"fadeIn":[8.267,8.617],"countUp":[8.267,8.867],"offsetY":"+3.5% of short side lower than tag 1","fadeOut":[10.45,10.75],"note":"9x16: left woman is outside the crop (inFrame=false), skip tag2 there"}},{"id":"man-pov-3","scene":"스침 3","start":10.75,"end":15.25,"soloFrom":11.333,"soloTo":14.667,"head":{"16x9":[{"t":10.75,"x":0.51,"y":0.2489,"inFrame":true},{"t":11.0,"x":0.4771,"y":0.2372,"inFrame":true},{"t":11.25,"x":0.4308,"y":0.208,"inFrame":true},{"t":11.5,"x":0.37,"y":0.16,"inFrame":true},{"t":11.75,"x":0.3785,"y":0.1616,"inFrame":true},{"t":12.0,"x":0.4074,"y":0.1749,"inFrame":true},{"t":12.25,"x":0.4363,"y":0.1881,"inFrame":true},{"t":12.5,"x":0.4652,"y":0.2014,"inFrame":true},{"t":12.75,"x":0.4941,"y":0.2147,"inFrame":true},{"t":13.0,"x":0.5231,"y":0.2279,"inFrame":true},{"t":13.25,"x":0.53,"y":0.2186,"inFrame":true},{"t":13.5,"x":0.53,"y":0.2021,"inFrame":true},{"t":13.75,"x":0.53,"y":0.1857,"inFrame":true},{"t":14.0,"x":0.53,"y":0.1692,"inFrame":true},{"t":14.25,"x":0.53,"y":0.1528,"inFrame":true},{"t":14.5,"x":0.529,"y":0.1422,"inFrame":true},{"t":14.75,"x":0.526,"y":0.1422,"inFrame":true},{"t":15.0,"x":0.5231,"y":0.1422,"inFrame":true}],"9x16":[{"t":10.75,"x":0.5,"y":0.14,"inFrame":true},{"t":11.0,"x":0.5,"y":0.1334,"inFrame":true},{"t":11.25,"x":0.5,"y":0.117,"inFrame":true},{"t":11.5,"x":0.5,"y":0.09,"inFrame":true},{"t":11.75,"x":0.5,"y":0.0909,"inFrame":true},{"t":12.0,"x":0.5,"y":0.0984,"inFrame":true},{"t":12.25,"x":0.5,"y":0.1058,"inFrame":true},{"t":12.5,"x":0.5,"y":0.1133,"inFrame":true},{"t":12.75,"x":0.5,"y":0.1207,"inFrame":true},{"t":13.0,"x":0.5,"y":0.1282,"inFrame":true},{"t":13.25,"x":0.5,"y":0.123,"inFrame":true},{"t":13.5,"x":0.5,"y":0.1137,"inFrame":true},{"t":13.75,"x":0.5,"y":0.1044,"inFrame":true},{"t":14.0,"x":0.5,"y":0.0952,"inFrame":true},{"t":14.25,"x":0.5,"y":0.0859,"inFrame":true},{"t":14.5,"x":0.5,"y":0.08,"inFrame":true},{"t":14.75,"x":0.5,"y":0.08,"inFrame":true},{"t":15.0,"x":0.5,"y":0.08,"inFrame":true}]},"tagPlacement":{"16x9":"top","9x16":"top"},"tag":{"text":"FRIEND 48% · LOVE 52%","friend":48,"love":52,"fadeIn":[11.733,12.083],"countUp":[11.733,12.333],"fadeOut":[14.367,14.667]}},{"id":"woman-hero","scene":"그녀 (클라이맥스)","start":14.667,"end":20.583,"soloFrom":15.25,"soloTo":20.583,"head":{"16x9":[{"t":14.667,"x":0.48,"y":0.1244,"inFrame":true},{"t":14.917,"x":0.4813,"y":0.1196,"inFrame":true},{"t":15.167,"x":0.4836,"y":0.1116,"inFrame":true},{"t":15.417,"x":0.4858,"y":0.1035,"inFrame":true},{"t":15.667,"x":0.4881,"y":0.0954,"inFrame":true},{"t":15.917,"x":0.4908,"y":0.0881,"inFrame":true},{"t":16.167,"x":0.4949,"y":0.0844,"inFrame":true},{"t":16.417,"x":0.4992,"y":0.0806,"inFrame":true},{"t":16.667,"x":0.5034,"y":0.0769,"inFrame":true},{"t":16.917,"x":0.5076,"y":0.0731,"inFrame":true},{"t":17.167,"x":0.5085,"y":0.0723,"inFrame":true},{"t":17.417,"x":0.5042,"y":0.0761,"inFrame":true},{"t":17.667,"x":0.5,"y":0.0798,"inFrame":true},{"t":17.917,"x":0.4957,"y":0.0836,"inFrame":true},{"t":18.167,"x":0.4915,"y":0.0874,"inFrame":true},{"t":18.417,"x":0.4909,"y":0.091,"inFrame":true},{"t":18.667,"x":0.4929,"y":0.0945,"inFrame":true},{"t":18.917,"x":0.4949,"y":0.098,"inFrame":true},{"t":19.167,"x":0.4968,"y":0.1016,"inFrame":true},{"t":19.417,"x":0.4988,"y":0.1051,"inFrame":true},{"t":19.667,"x":0.5,"y":0.1073,"inFrame":true},{"t":19.917,"x":0.5,"y":0.1073,"inFrame":true},{"t":20.167,"x":0.5,"y":0.1073,"inFrame":true},{"t":20.417,"x":0.5,"y":0.1074,"inFrame":true}],"9x16":[{"t":14.667,"x":0.5,"y":0.07,"inFrame":true},{"t":14.917,"x":0.5,"y":0.0673,"inFrame":true},{"t":15.167,"x":0.5,"y":0.0628,"inFrame":true},{"t":15.417,"x":0.5,"y":0.0582,"inFrame":true},{"t":15.667,"x":0.5,"y":0.0537,"inFrame":true},{"t":15.917,"x":0.5,"y":0.0496,"inFrame":true},{"t":16.167,"x":0.5,"y":0.0475,"inFrame":true},{"t":16.417,"x":0.5,"y":0.0454,"inFrame":true},{"t":16.667,"x":0.5,"y":0.0432,"inFrame":true},{"t":16.917,"x":0.5,"y":0.0411,"inFrame":true},{"t":17.167,"x":0.5,"y":0.0407,"inFrame":true},{"t":17.417,"x":0.5,"y":0.0428,"inFrame":true},{"t":17.667,"x":0.5,"y":0.0449,"inFrame":true},{"t":17.917,"x":0.5,"y":0.047,"inFrame":true},{"t":18.167,"x":0.5,"y":0.0491,"inFrame":true},{"t":18.417,"x":0.5,"y":0.0512,"inFrame":true},{"t":18.667,"x":0.5,"y":0.0532,"inFrame":true},{"t":18.917,"x":0.5,"y":0.0551,"inFrame":true},{"t":19.167,"x":0.5,"y":0.0571,"inFrame":true},{"t":19.417,"x":0.5,"y":0.0591,"inFrame":true},{"t":19.667,"x":0.5,"y":0.0603,"inFrame":true},{"t":19.917,"x":0.5,"y":0.0604,"inFrame":true},{"t":20.167,"x":0.5,"y":0.0604,"inFrame":true},{"t":20.417,"x":0.5,"y":0.0604,"inFrame":true}]},"tagPlacement":{"16x9":"left","9x16":"left"},"tag":{"text":"LOVE 96.5%","love":96.5,"placeholder":"LOVE ??.?%","fadeIn":[15.567,16.067],"rollStart":15.867,"rollStop":18.067,"roll":"ease-out cubic 12.0 -> 96.5, one decimal","coral":{"from":17.767,"to":18.867,"color":"#FA9E70","glow":true},"fadeOut":[19.667,20.583]},"matched":{"text":"MATCHED","fadeIn":[18.267,19.167],"rise":"~1.8% of short side over 1.2s","letterSpacing":"opens slowly over 1.6s","below":"tag","fadeOut":[19.667,20.583]},"baked":{"bloom":[18.067,19.067],"defocus":18.067,"slowmo":0.5,"pushIn":[1.0,1.04],"fadeToBlack":[19.667,20.583]}},{"id":"BLACK","scene":"검은 화면 (자막)","start":20.583,"end":23.583,"soloFrom":20.583,"soloTo":23.583},{"id":"ending","scene":"엔딩","start":23.583,"end":28.583,"soloFrom":23.583,"soloTo":28.583,"copy":{"note":"burned into roughcut only; optional for web","main":"당신이 원하는 상대를 만나요","mainIn":[25.183,25.983],"brand":"러브앳","brandIn":[26.183,26.983]}}],"blackStart":19.667,"blackFull":20.583,"blackEnd":23.583,"caption":{"text":"당신이 원하는 상대를 만날 때까지 함께해요.","captionIn":[20.883,21.483],"captionOut":[22.983,23.483],"color":"#FFFFFF"},"endingStart":23.583,"endingFullyVisible":24.667}</script>
+    <div class="stores stores-hero">
+        <a class="store" href="#download" aria-label="App Store에서 받기 (준비 중)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a class="store store-alt" href="#download" aria-label="Google Play에서 받기 (준비 중)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .4.4.7.8.5l10.3-9.7L4.8 2.3c-.4-.2-.8.1-.8.5zm12.4 8.1L7.1 2.2l11.4 6.5-2.1 2.2zm2.9-1.5l2.4 1.4c.6.4.6 1.3 0 1.6l-2.4 1.4-2.3-2.2 2.3-2.2zM7.1 21.8l9.3-8.7 2.1 2.2-11.4 6.5z"/></svg>
+          <span><small>GET IT ON</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+  </section>
+
+  <!-- PROMISE: five strengths the CEO confirmed (copy from home-v2) -->
+  <section class="promise" id="promise" aria-label="러브앳이 지키는 다섯 가지">
+    <div class="wrap">
+
+      <div class="prow">
+        <div class="prow-text rv"><h3>소개를 받을수록,<br><span class="nb">나와 더 잘 맞는</span> <span class="nb">사람을 추천해요</span></h3>
+          <p>어떤 사람을 넘겼는지, 그 이유까지 기억해요.<br class="pc"> 소개가 쌓일수록 내 기준을 더 잘 <span class="nb">이해하고,</span> <span class="nb">나와 가치관이 맞는</span> <span class="nb">사람을 추천해요</span>.</p></div>
+        <div class="glass rv" aria-label="러브님께 이분을 추천하는 이유">
+          <div class="g-h"><span>러브님께 이분을 추천하는 이유</span></div>
+          <div class="big-num">3 / 4<small>잘 맞아요</small></div>
+          <div class="seg5" style="grid-template-columns:repeat(4,1fr)"><i class="on"></i><i class="on"></i><i class="on"></i><i></i></div>
+          <p class="g-sub">잘 맞는 부분</p>
+          <ul class="g-rows ev">
+            <li><span class="k">만나는 횟수</span><span class="v">이분도 <em><span class="nb">일주일에 두 번 이상</span></em> <span class="nb">만나고 싶어 해요</span>. <span class="nb">자주 만나며</span> 가까워지고 싶은 러브님과 <em>잘 맞아요</em>.</span><span class="ok">일치 <svg viewBox="0 0 16 16" aria-hidden="true" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2.4;vertical-align:-1px"><path d="M3 8.5l3 3 7-7"/></svg></span></li>
+            <li><span class="k">사는 거리</span><span class="v">러브님이 계신 곳에서 <em><span class="nb">차로 30분 이내</span></em>인 사랑구에 살고 있어요.</span><span class="ok">일치 <svg viewBox="0 0 16 16" aria-hidden="true" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2.4;vertical-align:-1px"><path d="M3 8.5l3 3 7-7"/></svg></span></li>
+            <li><span class="k">갈등을 푸는 방식</span><span class="v">이분도 갈등이 생기면 <em><span class="nb">시간을 두고</span> 마음을 정리한 뒤 대화하는&nbsp;편</em>이에요. <span class="nb">러브님이 원하는 방식과 같아요</span>.</span><span class="ok">일치 <svg viewBox="0 0 16 16" aria-hidden="true" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2.4;vertical-align:-1px"><path d="M3 8.5l3 3 7-7"/></svg></span></li>
+          </ul>
+          <p class="g-sub">미리 알아둘 부분</p>
+          <ul class="g-rows ev">
+            <li><span class="k">결혼에 대한 생각</span><span class="v">러브님은 <em><span class="nb">2~3년 안에</span> 가정</em>을 꾸리고 싶어 하지만, 이분은 <em>지금은 일에 더 집중</em>하고 <span class="nb">싶어 해요</span>.</span><span class="no">다름</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="prow flip">
+        <div class="prow-text rv"><h3>아는 사람과 마주칠 걱정 없이</h3>
+          <p>회사나 연락처를 미리 등록해 지인을 차단할 수 있어요.<br class="pc"> 한쪽에서만 차단해도 <span class="nb">서로 소개되지</span> 않아요.</p></div>
+        <div class="glass rv" aria-label="차단 설정">
+          <div class="g-h"><span>차단 설정</span></div>
+          <div style="margin-top:8px">
+            <div class="tg"><div><b>회사 차단</b><span>같은 회사 사람은 소개하지 않아요</span></div><i class="sw" aria-hidden="true"></i></div>
+            <div class="tg"><div><b>연락처 차단</b><span>내 연락처에 있는 사람은 소개하지 않아요</span></div><i class="sw" aria-hidden="true"></i></div>
+          </div>
+          <div class="both"><span class="mono">⇄</span>한쪽만 차단해도 서로 소개되지 않아요.</div>
+        </div>
+      </div>
+
+      <div class="prow">
+        <div class="prow-text rv"><h3>원하는 만남을 설정할 수 있어요</h3>
+          <p>처음부터 연애를 전제로 만날 필요는 없어요.<br class="pc"> 편하게 알아가며 <span class="nb">내 속도대로</span> 관계를 이어가세요.</p></div>
+        <div class="glass rv" aria-label="원하는 만남 선택">
+          <div class="g-h"><span>원하는 만남</span></div>
+          <p class="seg-l" id="segq1">어떤 관계를 원하세요?</p>
+          <div class="segc two" role="radiogroup" aria-labelledby="segq1"><button type="button" role="radio" aria-checked="true" class="on">친구</button><button type="button" role="radio" aria-checked="false">연인</button></div>
+          <p class="seg-l" id="segq2">어떤 속도로 알아가고 싶나요?</p>
+          <div class="segc two" role="radiogroup" aria-labelledby="segq2"><button type="button" role="radio" aria-checked="true" class="on">천천히 알아가기</button><button type="button" role="radio" aria-checked="false">적극적으로 알아가기</button></div>
+          <p class="seg-l" id="segq3">어떤 분을 만나고 싶나요?</p>
+          <div class="segc" role="radiogroup" aria-labelledby="segq3"><button type="button" role="radio" aria-checked="false">남성을 원해요</button><button type="button" role="radio" aria-checked="true" class="on">둘 다 좋아요</button><button type="button" role="radio" aria-checked="false">여성을 원해요</button></div>
+          <p class="seg-foot">선택한 내용을 바탕으로, 원하는 관계와 <span class="nb">속도가 맞는</span> <span class="nb">사람을 소개해요</span>.</p>
+        </div>
+      </div>
+      <div class="prow flip">
+        <div class="prow-text rv"><h3>약속잡기로<br class="m"> 안전하게 만날 수 있어요</h3>
+          <p>앱 안에서 날짜와 장소를 정해 약속을 잡고, <span class="nb">노쇼 보증금으로</span> 약속을 지킬 수 있게 해요.</p></div>
+        <div class="glass rv" aria-label="약속잡기 흐름">
+          <div class="g-h"><span>약속잡기</span></div>
+          <ol class="flow">
+            <li><span class="n"></span><b>서로 수락</b></li>
+            <li><span class="n"></span><b>날짜 · 장소 정하기</b></li>
+            <li><span class="n"></span><b>노쇼 보증금</b></li>
+            <li class="last"><span class="n"></span><b>만남 후 서로 확인하기</b></li>
+          </ol>
+        </div>
+      </div>
+
+      <div class="prow">
+        <div class="prow-text rv"><h3>소개 전,<br class="m"> 운영진이 직접 검수해요</h3>
+          <p>프로필과 사진을 하나하나 살펴보고, <span class="nb">다른 사람의 사진을</span> 도용하지 않았는지 확인해요.<br class="pc"> 활동 여부도 점검해 <span class="nb">유령 회원이</span> 소개되지 않도록 관리해요.</p></div>
+        <div class="glass rv" aria-label="회원 검수 항목">
+          <div class="g-h"><span>회원 검수 항목</span></div>
+          <ul class="g-rows ev">
+            <li><span class="k">프로필</span><span class="v">허위 정보나 의심스러운 내용이 <span class="nb">없는지 검토해요</span></span><span class="ok"><svg viewBox="0 0 16 16" aria-hidden="true" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2.4;vertical-align:-1px"><path d="M3 8.5l3 3 7-7"/></svg></span></li>
+            <li><span class="k">사진</span><span class="v"><span class="nb">다른 사람의 사진을</span> 도용하지 않았는지 확인해요</span><span class="ok"><svg viewBox="0 0 16 16" aria-hidden="true" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2.4;vertical-align:-1px"><path d="M3 8.5l3 3 7-7"/></svg></span></li>
+            <li><span class="k">인증 정보</span><span class="v">직업·키 등 제출한 <span class="nb">인증 자료를</span> 검토해요</span><span class="ok"><svg viewBox="0 0 16 16" aria-hidden="true" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2.4;vertical-align:-1px"><path d="M3 8.5l3 3 7-7"/></svg></span></li>
+            <li><span class="k">활동 여부</span><span class="v">현재 활동 중인 회원인지 확인해요</span><span class="ok"><svg viewBox="0 0 16 16" aria-hidden="true" width="12" height="12" style="stroke:currentColor;fill:none;stroke-width:2.4;vertical-align:-1px"><path d="M3 8.5l3 3 7-7"/></svg></span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOVI: the intelligence -->
+  <section class="lovi" id="manager" aria-labelledby="lovi-h">
+    <div class="wrap">
+      <div class="lovi-head rv">
+        <h2 class="h2" id="lovi-h">당신의 취향을 배우는 AI,<br>러비예요</h2>
+        <p>어떤 사람에게 끌리는지, 어떤 점은 잘 맞지 않는지 러비에게 편하게 이야기해 주세요.<br class="pc"> 러비는 당신이 알려준 정보와 대화, 소개 후 남긴 의견을 바탕으로 취향과 <span class="nb">가치관을 계속 학습해요</span>.</p>
+        <p>좋았던 점도, 아쉬웠던 점도 자세히 알려줄수록 당신의 기준을 더 잘 이해해요.<br class="pc"> 그렇게 배운 내용을 다음 소개에 반영해, 당신이 <span class="nb">원하는 사람에 더 가까운</span> <span class="nb">상대를 추천해요</span>.</p>
+      </div>
+      <div class="lv-stage rv" aria-label="러비가 내가 알려준 정보로 배우고, 추천하고, 반응을 보고 다시 배우는 흐름">
+        <svg class="lv-lines" id="lvLines" viewBox="0 0 1040 540" aria-hidden="true">
+          <defs><marker id="lvArr" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="rgba(255,255,255,.5)"/></marker></defs>
+          <path id="lvP1" d="M318 108 C 380 108, 380 210, 425 222"/>
+          <path id="lvP2" d="M300 190 C 360 190, 380 230, 423 232"/>
+          <path id="lvP3" d="M318 272 C 380 272, 380 250, 425 242"/>
+          <path id="lvP4" d="M617 232 C 670 232, 700 200, 758 196"/>
+          <path class="loop" id="lvL1" d="M900 372 C 900 470, 720 498, 618 498" marker-end="url(#lvArr)"/>
+          <path class="loop" id="lvL2" d="M424 498 C 260 498, 150 470, 150 318" marker-end="url(#lvArr)"/>
+          <circle r="3"><animateMotion dur="2.6s" repeatCount="indefinite"><mpath href="#lvP1"/></animateMotion></circle>
+          <circle r="3"><animateMotion dur="2.6s" begin=".9s" repeatCount="indefinite"><mpath href="#lvP2"/></animateMotion></circle>
+          <circle r="3"><animateMotion dur="2.6s" begin="1.7s" repeatCount="indefinite"><mpath href="#lvP3"/></animateMotion></circle>
+          <circle r="3"><animateMotion dur="2.2s" begin=".4s" repeatCount="indefinite"><mpath href="#lvP4"/></animateMotion></circle>
+        </svg>
+        <div class="lv-col">
+          <div class="lv-bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>일주일에 두 번은 만나고 싶어요</div>
+          <div class="lv-bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>서두르지 않고 알아가고 싶어요</div>
+          <div class="lv-bubble"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20h4L19 9l-4-4L4 16z"/><path d="M13.5 6.5l4 4"/></svg>연락이 너무 잦으면 부담스러워요</div>
+        </div>
+        <span class="lv-v" aria-hidden="true"></span>
+        <div class="lv-orbwrap">
+          <div class="lv-orb"><svg viewBox="0 0 200 200" aria-hidden="true">
+              <g class="spin" stroke="rgba(255,240,235,.55)" fill="none" stroke-width=".8">
+                <ellipse cx="100" cy="100" rx="88" ry="30"/><ellipse cx="100" cy="100" rx="88" ry="58"/><ellipse cx="100" cy="100" rx="30" ry="88"/><ellipse cx="100" cy="100" rx="60" ry="88"/>
+              </g>
+              <g class="spin2" fill="#fff">
+                <circle cx="40" cy="78" r="2.2"/><circle cx="152" cy="64" r="1.8"/><circle cx="128" cy="150" r="2.4"/><circle cx="70" cy="138" r="1.6"/><circle cx="100" cy="30" r="1.8"/><circle cx="166" cy="118" r="1.6"/>
+                <path d="M40 78L100 30L152 64L166 118L128 150L70 138Z" stroke="rgba(255,255,255,.35)" stroke-width=".7" fill="none"/>
+              </g>
+            </svg></div>
+          <span class="lv-name">러비</span>
+        </div>
+        <span class="lv-v" aria-hidden="true"></span>
+        <div class="lv-card">
+          <h4><i></i>러브님께 추천해요</h4>
+          <div class="lv-pic"><svg viewBox="0 0 86 100" aria-hidden="true"><circle cx="43" cy="30" r="20"/><path d="M5 100c2-26 18-40 38-40s36 14 38 40z"/></svg></div>
+          <div class="lv-chips"><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>만나는 속도</span><span><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8.5l3 3 7-7"/></svg>연락 스타일</span></div>
+        </div>
+        <span class="lv-v" aria-hidden="true"></span>
+        <div class="lv-fbwrap">
+          <div class="lv-fb"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 11v9H4v-9zM7 11l4-7c1.5 0 2.5 1 2.2 2.6L12.6 10H19a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg><span class="sep"></span><svg viewBox="0 0 24 24" aria-hidden="true" style="transform:scaleY(-1)"><path d="M7 11v9H4v-9zM7 11l4-7c1.5 0 2.5 1 2.2 2.6L12.6 10H19a2 2 0 0 1 2 2.3l-1.2 6A2 2 0 0 1 17.8 20H7"/></svg></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta" id="download" aria-label="앱 받기">
+    <figure class="cta-img">
+      <img src="v4/couple-cafe.jpg" width="1920" height="1080" loading="lazy" decoding="async" alt="한강이 보이는 카페 창가에서 마주 앉아 웃는 두 사람">
+    </figure>
+    <div class="wrap rv cta-copy">
+      <div class="stores">
+        <a class="store" href="#download" aria-label="App Store에서 받기 (준비 중)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.4 2-3.5 2-3.6-1.1-1.6-2.8-1.8-3.4-1.8-1.4-.1-2.8.9-3.5.9s-1.8-.9-3-.8c-1.5 0-3 .9-3.8 2.3-1.6 2.8-.4 7 1.2 9.3.8 1.1 1.7 2.4 2.9 2.3 1.2 0 1.6-.7 3-.7s1.8.7 3 .7c1.3 0 2.1-1.1 2.8-2.3.9-1.3 1.3-2.6 1.3-2.6s-2.5-1-2.5-3.7zM14.1 5.6c.6-.8 1.1-1.9 1-3-.9 0-2.1.6-2.7 1.4-.6.7-1.1 1.8-1 2.9 1 .1 2.1-.5 2.7-1.3z"/></svg>
+          <span><small>Download on the</small><strong>App Store</strong></span>
+        </a>
+        <a class="store store-alt" href="#download" aria-label="Google Play에서 받기 (준비 중)">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2.8v18.4c0 .4.4.7.8.5l10.3-9.7L4.8 2.3c-.4-.2-.8.1-.8.5zm12.4 8.1L7.1 2.2l11.4 6.5-2.1 2.2zm2.9-1.5l2.4 1.4c.6.4.6 1.3 0 1.6l-2.4 1.4-2.3-2.2 2.3-2.2zM7.1 21.8l9.3-8.7 2.1 2.2-11.4 6.5z"/></svg>
+          <span><small>GET IT ON</small><strong>Google Play</strong></span>
+        </a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© 2026 loveat · 러브앳</span>
+    <nav aria-label="약관과 문의"><a href="#top">이용약관</a><a href="#top">개인정보처리방침</a></nav>
+  </div>
+</footer>

@@ -20,10 +20,9 @@ export default function GlobalNotFound() {
         <GuideHeader />
         <main id="main" className="article">
           <h1>페이지를 찾을 수 없어요</h1>
-          <p className="intro">주소가 바뀌었거나 없는 페이지예요. 러브앳 홈이나 돌싱 만남 가이드에서 다시 찾아보세요.</p>
+          <p className="intro">주소가 바뀌었거나 없는 페이지예요. 러브앳 홈에서 다시 찾아보세요.</p>
           <ul className="toc">
-            <li><a href="/">러브앳 홈</a></li>
-            <li><a href="/guide/">돌싱 만남 가이드</a></li>
+            <li><a href="/">러브앳 홈으로 가기</a></li>
           </ul>
         </main>
         <GuideFooter />
