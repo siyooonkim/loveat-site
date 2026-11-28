@@ -32,12 +32,6 @@ type Fix = { what: string; from: string | RegExp; to: string | ((...m: string[])
 
 const SITE_FIXES: Fix[] = [
   {
-    what: '자동재생은 home.js 가 받는 속도를 재서 끊김 없을 때 시작한다(브라우저 autoplay 속성 제거)',
-    from: '<video id="film" autoplay muted playsinline preload="auto"',
-    to: '<video id="film" muted playsinline preload="auto"',
-    count: 1,
-  },
-  {
     what: '영상 포스터는 화면에 맞는 것 하나만 받도록 스크립트에서 정한다(마크업 기본값 제거)',
     from: ' poster="v4/film-16x9-poster.jpg"',
     to: '',

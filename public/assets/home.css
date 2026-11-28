@@ -373,6 +373,17 @@ a{color:inherit}
   .frame{width:min(1320px,92vw,max(560px,calc((100svh - 392px) * 16 / 9)));min-width:0;max-width:100%;aspect-ratio:16/9;border-radius:22px}
 }
 
+/* ---------- 사이트 이식 때 추가: 세로 폰 히어로 단순화 ----------
+   영상 틀은 화면 폭에서 좌우 여백만 뺀 폭, 높이는 첫 화면 안에 들어오게(4:5, 화면 높이에 맞춰 줄어듦).
+   세로 영상(9:16)은 틀을 꽉 채우도록 위아래를 조금 잘라 보여 준다(cover). 카드는 작게 영상 아래쪽에(선 없음, home.js). */
+@media (orientation: portrait) and (max-width: 600px){
+  .frame{width:100%;min-width:0;max-width:440px;aspect-ratio:auto;height:min(calc(min(100vw,440px) * 1.25),max(360px,calc(100svh - 215px)));margin-top:16px;border-radius:16px}
+  .frame video{object-fit:cover}
+  .head.ph .head-stem{display:none}
+  .head.ph .tc.big{width:min(260px,calc(100cqw - 24px))}
+  .head.ph .tc.mini{max-width:calc(100cqw - 24px)}
+}
+
 /* ---------- 사이트 이식 때 추가: '곧 출시' 안내, 하단 운영 정보, 본문 건너뛰기 ---------- */
 .toast{position:fixed;left:50%;bottom:calc(28px + env(safe-area-inset-bottom,0px));z-index:70;transform:translate(-50%,12px);opacity:0;pointer-events:none;
   padding:12px 20px;border-radius:999px;background:rgba(29,29,31,.92);color:#fff;font-size:15px;font-weight:600;letter-spacing:-.01em;

@@ -1,7 +1,7 @@
 /*
  * 러브앳 홈(v4) 동작 — 원본: home-renewal-2026-11-23/home-v4.html (아티팩트 v21) 의 스크립트를 옮겼다.
  * 사이트 이식 때 바꾼 것
- *  1) 영상 시작: 받는 속도를 재서 끝까지 멈추지 않고 재생할 만큼 쌓인 뒤 시작한다(autoplay 속성은 뺐다). 그 전까지는 첫 장면 포스터가 보인다.
+ *  1) 영상 시작: autoplay + 바로 play(). 재생 중 버퍼가 모자라면 4초 분량을 모아 이어 재생. 재생이 막히면 MATCHED 정지 화면 + ▶.
  *  2) 맨 아래 '스토어 버튼' 블록(출시 전에는 '곧 출시돼요' 안내). 주소·출시 여부는 src/lib/site.ts 한 곳에서 정한다.
  */
 (function(){
@@ -20,35 +20,32 @@
   /* autoplay: muted + inline, retried on visibility and on the first interaction; reduced motion only calms the overlays */
   v.muted=true; v.defaultMuted=true; v.setAttribute('muted',''); v.playsInline=true;
   function play(){ v.muted=true; var pr=v.play(); if(pr&&pr.then) pr.then(function(){ blocked=false; syncCtl(); },function(){ blocked=true; showStill(); syncCtl(); }); }
-  function showStill(){ if(v.paused&&!filmDone&&v.currentTime<0.1){ var go=function(){ try{ v.currentTime=16.6; }catch(e){} };
-      if(v.readyState>=1) go(); else v.addEventListener('loadedmetadata',go,{once:true}); } }
-  function retry(){ if(!started) return; if(v.paused&&!filmDone){ if(blocked&&v.currentTime>0) v.currentTime=0; play(); } }
+  /* 재생이 막혔을 때(iOS 저전력 모드 등): 포스터를 MATCHED 장면 정지 화면으로 바꾸고, 카드도 그 장면 시각(STILL_T)에 맞춰 그린다.
+     영상 데이터를 못 받아도(iOS 는 play 전엔 거의 안 받는다) 정지 화면과 카드가 맞도록 영상 시간을 쓰지 않고 STILL_T 로 그린다. ▶ 를 누르면 처음부터 재생. */
+  var STILL_T=19.3, stillT=null;
+  function showStill(){ if(!v.paused||filmDone||v.currentTime>=0.1) return; stillT=STILL_T;
+    v.poster=v.poster.replace(/-poster\.webp$/,'-still.webp'); }
+  v.addEventListener('playing',function(){ stillT=null; if(blocked){ blocked=false; syncCtl(); } });
+  function retry(){ if(rebuf) return; if(v.paused&&!filmDone){ if(blocked&&v.currentTime>0) v.currentTime=0; stillT=null; play(); } }
   ['pointerdown','touchstart','keydown','wheel'].forEach(function(ev){ window.addEventListener(ev,retry,{once:true,passive:true}); });
   document.addEventListener('visibilitychange',function(){ if(!document.hidden) retry(); });
-  ctl.addEventListener('click',function(){ if(filmDone){ filmDone=false; v.currentTime=0; } blocked=false; play(); syncCtl(); });
+  ctl.addEventListener('click',function(){ if(filmDone){ filmDone=false; v.currentTime=0; } blocked=false; stillT=null; rebuf=false; play(); syncCtl(); });
   /* the film plays once and rests on the last frame of the two of them laughing (before the fade to black) */
   function holdAt(){ return HOLD!=null?HOLD:Math.max(0,(v.duration||21.04)-0.05); }
   function finish(){ filmDone=true; v.pause(); try{ v.currentTime=holdAt(); }catch(e){} syncCtl(); }
   v.addEventListener('ended',finish);
   v.addEventListener('play',syncCtl); v.addEventListener('pause',syncCtl);
-  /* 끊김 방지: 한 번만 재생되는 영상이라 중간에 멈추면 안 된다. 그래서 브라우저 자동재생(autoplay 속성)에 맡기지 않고,
-     받는 속도를 직접 재서 '지금 시작해도 끝까지 안 멈출 만큼' 쌓였을 때 시작한다. 그 전까지는 첫 장면 포스터가 보인다.
-     - 받는 속도 r = 1초 동안 늘어난 버퍼(영상 초) / 1초. r 이 재생 속도(1)보다 넉넉하면(1.2 이상) 3초만 쌓여도 시작.
-     - r 이 느리면, 다 받을 때까지 재생 위치가 버퍼를 따라잡지 않을 만큼(남은 길이 × (1-r')/r' + 2초, r' = r/1.2) 쌓인 뒤 시작.
-     - 다 받았으면 바로 시작. 아주 느린 망에서도 20초가 지나면 시작(포스터만 계속 보이지 않게). */
-  var started=false, hist=[], gateT0=Date.now();
-  function bufEnd(){ try{ var b=v.buffered; for(var i=0;i<b.length;i++){ if(b.start(i)<=0.25) return b.end(i); } }catch(e){} return 0; }
-  function start(){ if(started||filmDone) return; started=true; clearInterval(gate); play();
-    setTimeout(function(){ if(v.paused&&!filmDone&&!blocked){ blocked=true; showStill(); syncCtl(); } },2500); }
-  function check(){ if(started) return; var D=v.duration, now=Date.now(), b=bufEnd();
-    if(!(D>0)) return; hist.push([now,b]); while(hist.length>1&&now-hist[0][0]>1500) hist.shift();
-    if(b>=D-0.3) return start();
-    if(now-gateT0>20000) return start();
-    if(hist.length<3||now-hist[0][0]<900) return;
-    var r=(b-hist[0][1])/((now-hist[0][0])/1000);
-    var rs=r/1.2, need=rs>=1?3:(rs>0?(1-rs)*(D-b)/rs+2:Infinity);
-    if(b>=Math.max(3,need)) start(); }
-  var gate=setInterval(check,250); v.addEventListener('progress',check);
+  /* 자동재생: 영상 태그의 muted·playsinline·autoplay 에 더해 바로 play() 를 부른다.
+     (iOS Safari 는 play() 전에는 영상을 거의 받지 않으므로, 다 받을 때까지 기다리면 영영 시작하지 않는다)
+     재생 중 데이터가 모자라 멈추면(waiting) 잠깐 멈춘 채 4초 분량을 모은 뒤 이어서 재생한다 — 짧게 여러 번 끊기는 대신 한 번만 기다린다.
+     카드·MATCHED 는 매 프레임 영상 시간을 따라가므로 기다리는 동안에도 어긋나지 않는다. */
+  var rebuf=false, rebufT=0;
+  function ahead(){ try{ var b=v.buffered,t=v.currentTime; for(var i=0;i<b.length;i++){ if(b.start(i)<=t+0.1&&b.end(i)>=t) return b.end(i)-t; } }catch(e){} return 0; }
+  v.addEventListener('waiting',function(){ if(filmDone||blocked||rebuf||v.currentTime<0.05) return; rebuf=true; rebufT=Date.now(); v.pause(); });
+  setInterval(function(){ if(!rebuf) return; var left=Math.max(0,(v.duration||0)-v.currentTime-0.1);
+    if(ahead()>=Math.min(4,left)||Date.now()-rebufT>8000){ rebuf=false; play(); } },250);
+  play();
+  setTimeout(function(){ if(v.paused&&!filmDone&&!rebuf){ blocked=true; showStill(); syncCtl(); } },2500);
 
   /* overhead labels + face-keeping crop, driven by the editors' cue file */
   var heads=document.getElementById('heads'), CUE=null;
@@ -63,7 +60,7 @@
     if(sh.id==='man-pov-3'&&sh.head&&sh.head['9x16']){ sh.head['9x16'].forEach(function(q){ q.x+=0.1; }); }
   }); }
   if(CUE){ CUE.shots.forEach(function(sh){ if(sh.copy&&sh.copy.videoFadeOut) HOLD=sh.copy.videoFadeOut[0]-0.05; }); }
-  function ratio(){ return /9x16/.test(v.currentSrc||'')?'9x16':'16x9'; }
+  function ratio(){ return /9x16/.test(v.currentSrc||v.getAttribute('src')||'')?'9x16':'16x9'; }
   function lerpTrack(tr,t){ if(!tr||!tr.length) return null; if(t<=tr[0].t) return tr[0];
     for(var i=1;i<tr.length;i++){ if(t<=tr[i].t){ var a=tr[i-1],b=tr[i],k=(t-a.t)/((b.t-a.t)||1); return {x:a.x+(b.x-a.x)*k,y:a.y+(b.y-a.y)*k,inFrame:a.inFrame!==false&&b.inFrame!==false}; } } return tr[tr.length-1]; }
   function ramp(t,a,b){ return b<=a?(t>=a?1:0):Math.min(1,Math.max(0,(t-a)/(b-a))); }
@@ -99,7 +96,7 @@
     if(g.countUp){ var c=ease3(ramp(t,g.countUp[0],g.countUp[1])); return [String(Math.round(g.friend*c)),String(Math.round(g.love*c))]; }
     return [String(g.friend),String(g.love)]; }
   function coverMap(){ var W=v.clientWidth,H=v.clientHeight,vw=v.videoWidth||(ratio()==='9x16'?720:1280),vh=v.videoHeight||(ratio()==='9x16'?1280:720);
-    var sc=Math.min(W/vw,H/vh);
+    var sc=(ratio()==='9x16'?Math.max:Math.min)(W/vw,H/vh); /* 세로 폰은 틀을 꽉 채운다(cover, home.css 와 같게) */
     return {W:W,H:H,dx:(W-vw*sc)/2,dy:(H-vh*sc)/2,w:vw*sc,h:vh*sc}; }
   function shotAt(t){ if(!CUE) return null; for(var i=0;i<CUE.shots.length;i++){ var sh=CUE.shots[i]; if(t>=sh.start&&t<sh.end) return sh; } return null; }
   var navEl=document.getElementById('nav'), copyEl=document.querySelector('.hero-copy');
@@ -127,6 +124,18 @@
       if(o.big){
         var k2=ease3(ramp(t,g.rollStart,g.rollStop)); o.likeB.textContent=t<g.rollStart?'??.?%':(12+(g.love-12)*k2).toFixed(1)+'%';
       }
+      /* 세로 폰(9:16): 얼굴 좌표에 선을 잇지 않는다(세로 크롭에서는 좌표가 얼굴과 정확히 맞지 않아 선이 엉뚱한 곳을 가리켰다).
+         카드만 영상 아래쪽 가운데에 작게 띄우고, 여러 장이면 위로 쌓는다. (사이트 이식 때 추가) */
+      if(phone){
+        if(!o.big){ var mv0=miniVals(g,t,o.seed); o.fv.textContent=mv0[0]+'%'; o.lvv.textContent=mv0[1]+'%'; }
+        o.ln.style.opacity='0'; o.el.classList.add('side','ph');
+        tx=Math.max(8,(m.W-cw)/2); ty=m.H-ch-12;
+        placed.forEach(function(q){ if(ty<q.y+q.h+6&&ty+ch+6>q.y) ty=q.y-ch-8; });
+        placed.push({x:tx,y:ty,w:cw,h:ch});
+        o.el.style.transform='translate3d('+tx.toFixed(1)+'px,'+ty.toFixed(1)+'px,0)';
+        return;
+      }
+      o.el.classList.remove('ph');
       {
         if(!o.big){ var mv=miniVals(g,t,o.seed); o.fv.textContent=mv[0]+'%'; o.lvv.textContent=mv[1]+'%'; }
         var side=sh2.id!=='man-pov-2';
@@ -174,7 +183,7 @@
   var heroEl=document.getElementById('hero'), heroOn=true;
   function tick(){
     requestAnimationFrame(tick);
-    try{ if(heroOn){ var t=v.currentTime||0, d=v.duration||21;
+    try{ if(heroOn){ var t=stillT!=null?stillT:(v.currentTime||0), d=v.duration||21;
       if(!filmDone&&!v.paused&&t>=holdAt()) finish();
       frame(t); }
     }catch(e){ if(window.console) console.warn('film overlay',e); }
